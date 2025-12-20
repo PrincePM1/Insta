@@ -1,19 +1,24 @@
 {
   "name": "insta",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.1"
+  },
+  "description": "\"# Insta\"",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrincePM1/Insta.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
-    "bcrypt": "^6.0.0",
-    "express": "^5.2.1"
+  "bugs": {
+    "url": "https://github.com/PrincePM1/Insta/issues"
   },
-  "devDependencies": {}
+  "homepage": "https://github.com/PrincePM1/Insta#readme"
 }
