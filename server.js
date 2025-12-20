@@ -5,7 +5,7 @@ const path = require("path");
 const app = express();
 
 // File to store users
-const USERS_FILE = "users.json";
+const USERS_FILE = path.join(__dirname, "users.json");
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -32,7 +32,7 @@ function randomString(length) {
 app.post("/signup", (req, res) => {
   const { username, password } = req.body;
 
-  // Read existing users
+  // Ensure users.json exists
   let users = [];
   if (fs.existsSync(USERS_FILE)) {
     users = JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));

@@ -1,7 +1,5 @@
-[
-  {
-    "username": "user_abc123",
-    "password": "mypassword"
-  }
-]
-
+{
+  "message": "Signup successful ✅",
+  "username": "john123",
+  "password": "mypassword"
+}
