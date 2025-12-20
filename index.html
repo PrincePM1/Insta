@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login • Instagram</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      border: 1px solid #dbdbdb;
+      width: 360px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 40px;
+      font-family: 'Segoe UI', cursive;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #8e8e8e;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      background: #fafafa;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0095f6;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0077cc;
+    }
+
+    .terms {
+      font-size: 12px;
+      color: #8e8e8e;
+      margin-top: 15px;
+      line-height: 1.4;
+    }
+
+    .terms span {
+      color: #00376b;
+      cursor: pointer;
+    }
+
+    .login-link {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .login-link span {
+      color: #0095f6;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+ </style>
+</head>
+<body>
+
+  <!-- Signup Form -->
+  <div class="box">
+  <h2>Instagram</h2>
+   <div class="subtitle">Login to see photos and videos from your friends.</div>
+    
+    <input type="text" id="signup-username" placeholder="Username">
+    <input type="password" id="signup-password" placeholder="Password">
+    <button onclick="signup()">Log in</button>
+    <p id="signup-msg"></p>
+    <div class="terms">
+      By signing up, you agree to our <span>Terms</span>, 
+      <span>Privacy Policy</span> and <span>Cookies Policy</span>.
+    
+  </div>
+
+ 
+  <script>
+    // SIGNUP
+    async function signup() {
+      const username = document.getElementById("signup-username").value;
+      const password = document.getElementById("signup-password").value;
+
+      const res = await fetch("/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await res.json();
+      document.getElementById("signup-msg").innerText = data.message;
+    }
+
+    // LOGIN
+    async function login() {
+      const username = document.getElementById("login-username").value;
+      const password = document.getElementById("login-password").value;
+
+      const res = await fetch("/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await res.json();
+      document.getElementById("login-msg").innerText = data.message;
+    }
+
+    // RANDOM USER
+    async function createRandomUser() {
+      const res = await fetch("/create-random-user");
+      const data = await res.json();
+      document.getElementById("random-msg").innerText = 
+        `Username: ${data.username}, Password: ${data.password}`;
+    }
+  </script>
+</body>
+</html>
