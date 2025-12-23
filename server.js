@@ -1,3 +1,6 @@
+// ✅ STEP 3: Load environment variables
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
@@ -10,10 +13,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// MongoDB connection
-//mongoose.connect("mongodb://127.0.0.1:27017/instaDB")
+// ================= MONGODB CONNECTION =================
 mongoose.connect(process.env.MONGO_URI)
-
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
@@ -23,16 +24,13 @@ app.post("/signup", async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    // check if username already exists
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.json({ message: "Username already exists" });
     }
 
-    // hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // save user
     const user = new User({
       username,
       password: hashedPassword
@@ -76,14 +74,9 @@ app.post("/login", async (req, res) => {
 });
 
 
-// Start server
-//app.listen(5000, () => {
- // console.log("Server running on port 5000");
-
- const PORT = process.env.PORT || 5000;
+// ================= START SERVER =================
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log("Server running on port " + PORT);
-});
-
 });
