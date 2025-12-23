@@ -1,26 +1,85 @@
 body {
+  background: #fafafa;
   font-family: Arial, sans-serif;
-  background: #f0f0f0;
+}
+
+.container {
+  width: 350px;
+  margin: 50px auto;
+}
+
+.login-box {
+  background: white;
+  border: 1px solid #dbdbdb;
+  padding: 40px;
   text-align: center;
 }
 
-.box {
-  background: #fff;
-  padding: 20px;
-  margin: 20px auto;
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ccc;
+.logo {
+  font-family: 'Billabong', cursive;
+  font-size: 50px;
+  margin-bottom: 30px;
 }
 
 input {
-  display: block;
-  width: 90%;
-  padding: 8px;
-  margin: 10px auto;
+  width: 100%;
+  padding: 9px;
+  margin-bottom: 8px;
+  background: #fafafa;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
 }
 
-button {
-  padding: 10px 20px;
+.login-btn {
+  width: 100%;
+  background: #0095f6;
+  border: none;
+  color: white;
+  padding: 8px;
+  font-weight: bold;
+  border-radius: 5px;
   cursor: pointer;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: #dbdbdb;
+}
+
+.divider p {
+  margin: 0 10px;
+  color: gray;
+  font-size: 12px;
+}
+
+.forgot {
+  font-size: 12px;
+  color: #00376b;
+  text-decoration: none;
+}
+
+.signup-box {
+  background: white;
+  border: 1px solid #dbdbdb;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup-box a {
+  color: #0095f6;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.small-text {
+  font-size: 12px;
+  color: gray;
 }

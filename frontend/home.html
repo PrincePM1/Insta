@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #fafafa;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    .navbar {
+      height: 60px;
+      background: white;
+      border-bottom: 1px solid #dbdbdb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 200px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: 'Segoe Script', cursive;
+      font-size: 28px;
+    }
+
+    .nav-icons span {
+      margin-left: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* ---------- MAIN ---------- */
+    .main {
+      display: flex;
+      justify-content: center;
+      margin-top: 90px;
+    }
+
+    /* ---------- FEED ---------- */
+    .feed {
+      width: 470px;
+    }
+
+    .story-box {
+      background: white;
+      border: 1px solid #dbdbdb;
+      padding: 15px;
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .story {
+      margin-right: 15px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .story img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid #e1306c;
+    }
+
+    .post {
+      background: white;
+      border: 1px solid #dbdbdb;
+      margin-bottom: 25px;
+    }
+
+    .post-header {
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .post img {
+      width: 100%;
+    }
+
+    .post-footer {
+      padding: 10px;
+    }
+
+    /* ---------- SIDEBAR ---------- */
+    .sidebar {
+      width: 300px;
+      margin-left: 30px;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .logout {
+      color: #0095f6;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo">Instagram</div>
+    <div class="nav-icons">
+      <span>🏠</span>
+      <span>💬</span>
+      <span>➕</span>
+      <span>❤️</span>
+      <span onclick="logout()">Logout</span>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- FEED -->
+    <div class="feed">
+
+      <!-- STORIES -->
+      <div class="story-box">
+        <div class="story">
+          <img src="https://i.pravatar.cc/150?img=1">
+          <p>user1</p>
+        </div>
+        <div class="story">
+          <img src="https://i.pravatar.cc/150?img=2">
+          <p>user2</p>
+        </div>
+        <div class="story">
+          <img src="https://i.pravatar.cc/150?img=3">
+          <p>user3</p>
+        </div>
+      </div>
+
+      <!-- POST 1 -->
+      <div class="post">
+        <div class="post-header">user1</div>
+        <img src="https://picsum.photos/500/500?random=1">
+        <div class="post-footer">
+          ❤️ 💬 ✈️<br><br>
+          <strong>user1</strong> Enjoying the day ☀️
+        </div>
+      </div>
+
+      <!-- POST 2 -->
+      <div class="post">
+        <div class="post-header">user2</div>
+        <img src="https://picsum.photos/500/500?random=2">
+        <div class="post-footer">
+          ❤️ 💬 ✈️<br><br>
+          <strong>user2</strong> Coding all night 💻
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="profile">
+        <img src="https://i.pravatar.cc/150?img=12">
+        <div>
+          <strong id="username"></strong><br>
+          <span style="color: gray;">Logged in</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AUTH + LOGOUT -->
+  <script>
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("username");
+
+    if (!token) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("username").innerText = user;
+    }
+
+    function logout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>

